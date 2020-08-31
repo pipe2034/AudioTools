@@ -116,7 +116,7 @@ def ChangeMonoChannel(path_audios, path_destino, chanel = 1):
 #Funtions integrate with arguments        
 def removeNoise(args):
     pathOriginal = args.path[0]
-    path_model = args.model[0]
+    path_model = '../models/clc.pt'
     path_des = args.path_des[0]
     if os.path.isdir(pathOriginal+'_temp')==False:
         os.makedirs(pathOriginal+'_temp')
@@ -136,7 +136,6 @@ if __name__ == '__main__':
     subparsers = parser.add_subparsers(help='code with tools for problems with Audio')
     parser_data = subparsers.add_parser('removeNoise', help='using model pretrained')
     parser_data.add_argument('-path', help='path_with_audios', type=str, required=True, nargs='+')
-    parser_data.add_argument('-model', help='modelWithPath', type=str, required=True, nargs='+')
     parser_data.add_argument('-path_des', help='Destination Path', type=str, required=True, nargs='+')
     parser_data.set_defaults(func=removeNoise)
         
