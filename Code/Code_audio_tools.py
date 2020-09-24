@@ -100,8 +100,8 @@ def removeContent(path_audios,path_Outaudios, fileDict):
             final_song = retrieve_audio(path_audios+'/'+file, fileDict[file])
         else:
             final_song = AudioSegment.from_wav(path_audios+'/'+file)
-       if not(os.path.isdir(path_Outaudios)):
-             os.makedirs(path_Outaudios) 
+        if not(os.path.isdir(path_Outaudios)):
+            os.makedirs(path_Outaudios) 
         final_song.export(path_Outaudios+'/'+file, format="wav")
 
 
