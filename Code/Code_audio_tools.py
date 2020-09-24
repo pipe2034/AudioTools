@@ -81,7 +81,7 @@ def add_contained(path_audios,path_audios_extend):
     files = os.listdir(path_audios)
     fileDict={}
     for file in files:
-        fs, audio = wavf.read(path_audios+file)
+        fs, audio = wavf.read(path_audios+'/'+file)
         timeAudio = 1/fs*len(audio)
         if timeAudio <= 3:
             timeAdd = 3-timeAudio
@@ -100,6 +100,8 @@ def removeContent(path_audios,path_Outaudios, fileDict):
             final_song = retrieve_audio(path_audios+'/'+file, fileDict[file])
         else:
             final_song = AudioSegment.from_wav(path_audios+'/'+file)
+       if not(os.path.isdir(path_Outaudios)):
+             os.makedirs(path_Outaudios) 
         final_song.export(path_Outaudios+'/'+file, format="wav")
 
 
