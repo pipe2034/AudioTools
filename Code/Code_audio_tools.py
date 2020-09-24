@@ -81,7 +81,7 @@ def add_contained(path_audios,path_audios_extend):
     files = os.listdir(path_audios)
     fileDict={}
     for file in files:
-        fs, audio = wavf.read(path_audios+'/'+file)
+        fs, audio = wavf.read(path_audios+file)
         timeAudio = 1/fs*len(audio)
         if timeAudio <= 3:
             timeAdd = 3-timeAudio
